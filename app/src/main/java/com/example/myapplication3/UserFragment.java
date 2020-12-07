@@ -14,10 +14,9 @@ public class UserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = new User(); // создан пустой пользователь
-        // задали значения пользователя
-        user.setUserName("Ivan");
-        user.setUserLastName("Ivanov");
+        Bundle bundle = getArguments();
+        // принимаем объект user
+        user = (User) bundle.getSerializable("user");
     }
     // создаем компоненты внутри фрагментов и передаем их в Активность
     @Override

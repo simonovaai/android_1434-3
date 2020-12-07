@@ -1,14 +1,18 @@
 package com.example.myapplication3;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
     private String userName;
     private String userLastName;
     private UUID uuid;
 
-    public User() {
-        this.uuid = UUID.randomUUID(); // случайный номер id пользователя
+    public User() {// случайный номер id пользователя
+        this(UUID.randomUUID()); // при создании нового пользователя
+    }
+    public User(UUID uuid){
+        this.uuid = uuid; // при создании существующего пользователя
     }
 
     public String getUserName() {
